@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2acac;
+    font-family: 'Mochiy Pop P One', sans-serif;
+  }
+
+  input#open {
+    display: none;
+  }
+  
+  .valentines-day-card {
+    position: relative;
+    width: 300px;
+    height:300px;
+    transform-style: preserve-3d;
+      transform: perspective(2500px);
+    transition: .3s;
+  }
+  
+  .card-front {
+    position: relative;
+    background-color: #fff0f3;
+    width: 300px;
+    height:300px;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 30px 0 50px rgba(0,0,0,0.3);
+    transition: .3s;
+  }
+  
+  .card-front:before {
+    content:"";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background-color: #d04e4e;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .card-inside {
+    position: absolute;
+    background-color: #fff0f3;
+    width: 300px;
+    height:300px;
+    z-index:-1;
+    left:0;
+    top:0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.22), 100px 20px 100px rgba(0,0,0,0.1);
+  }
+  
+  .open {
+    position: absolute;
+    width: 300px;
+    height:300px;
+    left:0;
+    top:0;
+    background-color: transparent;
+    z-index:6;
+    cursor: pointer;
+  }
+  
+  #open:checked ~ .card-front {
+    transform: rotateY(-155deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+  }
+  
+  #open:checked ~ .card-front:before {
+    z-index:5;
+    background-color: #fff0f3;
+    width:300px;
+    height:300px;
+    top:0;
+    left:0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.1), 30px 0 50px rgba(0,0,0,0.1);
+  }
+
+  .note {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    background-color: #fff0f3;
+    top:75px;
+    left:50px;
+    color: #333;
+    font-size:30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+  }
+  
+  .note:before, .note:after {
+    position: absolute;
+    content:"";
+    background-color: #ba1c1c;
+    width: 40px;
+    height:40px;
+  }
+  
+  .note:before {
+    transform: rotate(-45deg);
+    top:-20px;
+    left:80px;
+  }
+  
+  .note:after {
+    border-radius:50%;
+    top:-35px;
+    left:65px;
+    box-shadow:30px 0 #ba1c1c;
+  }
+  .text-one {
+    position: absolute;
+    color: #333;
+    font-size: 15px;
+    top:30px;
+    width:300px;
+    text-align: left;
+  }
+  
+  .text-one:before, .text-one:after {
+    position: absolute;
+    left:5px;
+    text-align: center;
+    width:300px;
+  }
+  
+  .heart2 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAyNSAyMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3BhY2U9InByZXNlcnZlIiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7Ij4gICAgPGcgaWQ9IlBsYW4tZGUtdHJhdmFpbDEiIHRyYW5zZm9ybT0ibWF0cml4KDAuOTc1ODY3LDAsMCwxLC0yMi4yNzIsMCkiPiAgICAgICAgPHJlY3QgeD0iMjIuODIzIiB5PSIwIiB3aWR0aD0iMjUuMTc3IiBoZWlnaHQ9IjIxLjg3MyIgc3R5bGU9ImZpbGw6bm9uZTsiLz4gICAgICAgIDxjbGlwUGF0aCBpZD0iX2NsaXAxIj4gICAgICAgICAgICA8cmVjdCB4PSIyMi44MjMiIHk9IjAiIHdpZHRoPSIyNS4xNzciIGhlaWdodD0iMjEuODczIi8+ICAgICAgICA8L2NsaXBQYXRoPiAgICAgICAgPGcgY2xpcC1wYXRoPSJ1cmwoI19jbGlwMSkiPiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDEuMDI0NzMsMCwwLDEsLTEuMzQyNjcsLTEzLjc0NjgpIj4gICAgICAgICAgICAgICAgPGc+ICAgICAgICAgICAgICAgICAgICA8Zz4gICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzYsMThDMzUsMTYuMiAzMy4xLDE1IDMwLjksMTVDMjcuNiwxNSAyNSwxOC4xIDI1LDIxLjRDMjUsMjQuNyAyOC41LDMxLjQgMzYsMzRDNDMuNSwzMS40IDQ3LDI0LjcgNDcsMjEuNEM0NywxOC4xIDQ0LjQsMTUgNDEuMSwxNUMzOC45LDE1IDM3LDE2LjIgMzYsMThaIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpyZ2IoMjQ4LDk0LDk0KTtzdHJva2Utd2lkdGg6MnB4OyIvPiAgICAgICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgICAgICA8L2c+ICAgICAgICAgICAgPC9nPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+");
+    background-repeat: no-repeat;
+  }
+  
+  .heart2:nth-child(1) {
+    left: 41%;
+    bottom: 0;
+    -webkit-animation: love 5s ease-in infinite;
+            animation: love 5s ease-in infinite;
+  }
+  
+  .heart2:nth-child(2) {
+    left: 93%;
+    bottom: 0;
+    -webkit-animation: love 10s ease-in infinite;
+            animation: love 10s ease-in infinite;
+  }
+  
+  .heart2:nth-child(3) {
+    left: 42%;
+    bottom: 0;
+    -webkit-animation: love 15s ease-in infinite;
+            animation: love 15s ease-in infinite;
+  }
+  
+  .heart2:nth-child(4) {
+    left: 6%;
+    bottom: 0;
+    -webkit-animation: love 20s ease-in infinite;
+            animation: love 20s ease-in infinite;
+  }
+  
+  .heart2:nth-child(5) {
+    left: 20%;
+    bottom: 0;
+    -webkit-animation: love 25s ease-in infinite;
+            animation: love 25s ease-in infinite;
+  }
+  
+  .heart2:nth-child(6) {
+    left: 29%;
+    bottom: 0;
+    -webkit-animation: love 30s ease-in infinite;
+            animation: love 30s ease-in infinite;
+  }
+  
+  .heart2:nth-child(7) {
+    left: 16%;
+    bottom: 0;
+    -webkit-animation: love 35s ease-in infinite;
+            animation: love 35s ease-in infinite;
+  }
+  
+  .heart2:nth-child(8) {
+    left: 7%;
+    bottom: 0;
+    -webkit-animation: love 40s ease-in infinite;
+            animation: love 40s ease-in infinite;
+  }
+  
+  .heart2:nth-child(9) {
+    left: 89%;
+    bottom: 0;
+    -webkit-animation: love 45s ease-in infinite;
+            animation: love 45s ease-in infinite;
+  }
+  
+  .heart2:nth-child(10) {
+    left: 42%;
+    bottom: 0;
+    -webkit-animation: love 50s ease-in infinite;
+            animation: love 50s ease-in infinite;
+  }
+  
+  .heart2:nth-child(11) {
+    left: 40%;
+    bottom: 0;
+    -webkit-animation: love 55s ease-in infinite;
+            animation: love 55s ease-in infinite;
+  }
+  
+  .heart2:nth-child(12) {
+    left: 33%;
+    bottom: 0;
+    -webkit-animation: love 60s ease-in infinite;
+            animation: love 60s ease-in infinite;
+  }
+  
+  .heart2:nth-child(13) {
+    left: 36%;
+    bottom: 0;
+    -webkit-animation: love 65s ease-in infinite;
+            animation: love 65s ease-in infinite;
+  }
+  
+  .heart2:nth-child(14) {
+    left: 15%;
+    bottom: 0;
+    -webkit-animation: love 70s ease-in infinite;
+            animation: love 70s ease-in infinite;
+  }
+  
+  .heart2:nth-child(15) {
+    left: 82%;
+    bottom: 0;
+    -webkit-animation: love 75s ease-in infinite;
+            animation: love 75s ease-in infinite;
+  }
+  
+  .heart2:nth-child(16) {
+    left: 27%;
+    bottom: 0;
+    -webkit-animation: love 80s ease-in infinite;
+            animation: love 80s ease-in infinite;
+  }
+  
+  .heart2:nth-child(17) {
+    left: 25%;
+    bottom: 0;
+    -webkit-animation: love 85s ease-in infinite;
+            animation: love 85s ease-in infinite;
+  }
+  
+  .heart2:nth-child(18) {
+    left: 74%;
+    bottom: 0;
+    -webkit-animation: love 90s ease-in infinite;
+            animation: love 90s ease-in infinite;
+  }
+  
+  .heart2:nth-child(19) {
+    left: 11%;
+    bottom: 0;
+    -webkit-animation: love 95s ease-in infinite;
+            animation: love 95s ease-in infinite;
+  }
+  
+  .heart2:nth-child(20) {
+    left: 86%;
+    bottom: 0;
+    -webkit-animation: love 100s ease-in infinite;
+            animation: love 100s ease-in infinite;
+  }
+  
+  @-webkit-keyframes love {
+    0% {
+      transform: translateY(0%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes love {
+    0% {
+      transform: translateY(0%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes close {
+      0%, 100% {
+          transform: scale(1, .05);
+      }
+      5%, 95% {
+          transform: scale(1, 1);
+      }
+  }
+  
+  @keyframes beat {
+    0%, 40%, 100% {
+      transform: scale(1) rotate(-45deg);
+    }
+    25%, 60% {
+      transform: scale(1.1) rotate(-45deg);
+    }
+  }
